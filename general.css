@@ -1,0 +1,138 @@
+*{
+    font-family: 'Dekko';
+}
+
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+div {
+    color: black;
+}
+
+
+input {
+    font-size: 25px;
+    padding: 12px 20px;
+    margin: 20px 0; 
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #202020;
+    width: 100%;
+}
+
+#title {
+    background-color: #FF90C6;
+    color: #FFFFFF;
+    position: fixed;
+    height: 70px;
+}
+
+#nav {
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    background-color: #FF90C6;
+    list-style-type: none;
+    overflow: hidden;
+    top: 0;
+    position: fixed;
+    display: flex;
+    z-index: 2;
+    height: 74px;
+    width: 100%;
+    box-shadow: 0px 0px 10px -1px #010101;
+}
+
+#nav a {
+    color: white;
+    padding: 0 15; 
+    text-decoration: none;
+    display: block;
+    line-height: 74px;
+    height: 100%;
+}
+
+#nav a:hover {
+    background-color: #FC46AA;
+    background-color: #101010;
+}
+
+#nav a:active {
+    background-color: #FA42A8;
+    background-color: #505050;
+}
+
+#menu {
+    background-color: #E5B0D0;
+    font-size: 30px;
+    text-align: center;
+    overflow-x: hidden;
+    top: 74;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 0;
+}
+
+#menu a {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    line-height: 58px;
+    display: block;
+    height: 58px;
+    width: 100%;
+}
+
+#menu a:hover {
+    background-color: #202020;
+}
+
+#menu a:active {
+    background-color: #FA42A8;
+    background-color: #505050;
+}
+
+#footnote {
+    position: fixed;
+    bottom: 10;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+}
+
+#content {
+    font-size: 60px;
+    padding: 74px 20px 10px 20px;
+    margin-left: 0px;
+    min-width: 800px;
+}
+
+#error {
+    background-color: red;
+    margin:auto;
+    text-align: center; 
+    display: block;
+    border: 1px black;
+    width: 100%;
+    border: 3px solid black;
+}
+
+.submit-button {
+    color: white;
+    background-color: #FF90C6;
+    font-size: 50px;
+    text-align: center;
+    line-height: 60px;
+    margin-top: 20px;
+    height: 60px;
+    width: 100%;
+    border: none;
+}
+
+.submit-button:hover {
+    background-color: #FF70A6;
+}
+
