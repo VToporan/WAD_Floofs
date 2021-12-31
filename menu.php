@@ -14,11 +14,8 @@ case "adoption.php":
 }
 
 echo '
-<div id="footnote">
-<p> Floofs </p>
-<a href="mailto:victor.toporan@student.upt.ro"> Email </a>
-<a href="tel:+40712345678"> Phone </a>
-</div>
+<a href="mailto:victor.toporan@student.upt.ro" class="footnote"> Email </a>
+<a href="tel:+40712345678" class="footnote"> Phone </a>
 ';
 
 echo '</div>';

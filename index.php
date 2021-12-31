@@ -1,4 +1,6 @@
 <?php 
+require_once('./session.php');
+$current_user = $_SESSION['user'];
 ?>
 
 <html>
@@ -8,7 +10,7 @@
     </head>
     
     <body>
-        <?php include './navbar.php'; ?>
+        <?php require_once './navbar.php'; ?>
         <div id="content" style="margin-left:0px">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In nibh mauris cursus mattis molestie. Id aliquet risus feugiat in ante metus dictum at. Dolor morbi non arcu risus quis varius quam quisque. At erat pellentesque adipiscing commodo. Auctor augue mauris augue neque gravida in fermentum et. Mattis rhoncus urna neque viverra justo nec ultrices dui sapien. Mattis rhoncus urna neque viverra justo. Tristique risus nec feugiat in fermentum. Sit amet porttitor eget dolor morbi. Adipiscing bibendum est ultricies integer quis auctor elit sed vulputate. Libero nunc consequat interdum varius sit amet mattis vulputate enim. Egestas sed tempus urna et pharetra pharetra massa massa. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Nisl pretium fusce id velit ut.
             Orci dapibus ultrices in iaculis nunc sed augue lacus viverra. Id diam maecenas ultricies mi eget. Justo donec enim diam vulputate ut pharetra sit. At quis risus sed vulputate odio ut enim blandit. Volutpat diam ut venenatis tellus in metus vulputate eu. Viverra aliquet eget sit amet tellus cras adipiscing enim. Ultrices dui sapien eget mi proin sed libero. Sed felis eget velit aliquet sagittis id. Habitant morbi tristique senectus et netus et malesuada fames. Ullamcorper malesuada proin libero nunc. Et odio pellentesque diam volutpat commodo sed. Nulla facilisi nullam vehicula ipsum a arcu cursus. Scelerisque eu ultrices vitae auctor eu augue ut. Pellentesque diam volutpat commodo sed. Morbi quis commodo odio aenean sed adipiscing diam donec adipiscing.

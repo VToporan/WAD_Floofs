@@ -1,12 +1,6 @@
 <?php 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-$link = mysqli_connect("localhost", "root", "", "WAD_Floofs");
-if ($link === false) {
-    die("ERROR! Could not connect to Floofs database." . mysqli_connect_error());
-}
+require_once('./session.php');
+$current_user = $_SESSION['user'];
 ?>
 
 <html>
@@ -16,7 +10,7 @@ if ($link === false) {
     </head>
     
     <body>
-        <?php include './navbar.php'; ?>
+        <?php require_once './navbar.php'; ?>
         <div id="content" style="margin-left:0px">
 <?php
 if (!isset($_GET['view'])) {

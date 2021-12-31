@@ -8,7 +8,7 @@
     </head>
     
     <body>
-        <?php include './navbar.php'; ?>
+        <?php require_once './navbar.php'; ?>
         <div id="content" style="margin-left:0px">
             Store page
         </div> 

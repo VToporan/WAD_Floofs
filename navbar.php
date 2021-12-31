@@ -1,60 +1,42 @@
 <?php 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-if (!isset($_SESSION['username'])) {
-    $_SESSION['username'] = "Guest"; 
-    $_SESSION['isLogged'] = False;
-    $_SESSION['role'] = 0;
-}
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    header("location: ./index.php");
-}
-
-function error($message) {
-    echo '<div id="error">';
-    echo $message;
-    echo '</div>';
-}
-
+require_once('./session.php');
+$current_user = $_SESSION['user'];
 ?>
+
 <nav>
-    <div id="title"> FLOOFS </div>
     <div id="nav">
-        <a href="#" onclick="toggleMenu();"> ≡ </a>
+        <a href="#" onclick="toggleMenu();">  ≡   </a>
         <a href="./index.php">home</a>
         <a href="./store.php">store</a>
         <a href="./adoption.php">adoption</a>
         <a href="./contact.php">contact</a>
 
         <?php 
-        if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] === false) {
+        if(!$current_user->isLogged()) {
             echo '
             <a href="./login.php">login</a>
             <a href="./register.php">register</a>
             ';
         } else {
-            if(isset($_SESSION['role']) && $_SESSION['role'] >= 1) {
+            if($current_user->role() >= 1) {
                 echo '    
                 <a href="./inventory.php">inventory</a>
                 ';
             }
-            if(isset($_SESSION['role']) && $_SESSION['role'] >= 2) {
+            if($current_user->role() >= 2) {
                 echo '    
                 <a href="./users.php">users</a>
                 ';
             }
             echo '
-            <a href="./index.php?logout=1" >logout</a>
+            <a href="./index.php?logout=1">logout</a>
             <a href="./profile.php" >profile</a>
             ';
         }
 
         ?>
 
-        <a href="#" style="hover=none;">Welcome, <?php echo $_SESSION['username'] ?></a>
+        <a href="#" style="hover=none;">Welcome, <?php echo $current_user->username() ?></a>
     </div>
 
     <script type="text/javascript">
@@ -64,8 +46,8 @@ function error($message) {
         if (menu.offsetWidth === 0) {
             menu.style.transition = "0.5s";
             content.style.transition = "margin-left 0.5s";
-            menu.style.width = "260px";
-            content.style.marginLeft = "260px";
+            menu.style.width = "15vw";
+            content.style.marginLeft = "15vw";
             localStorage.setItem("sidenav", "open");
         } else {
             menu.style.transition = "0.5s";
@@ -84,12 +66,12 @@ function error($message) {
                 menu.style.transition = "0s";
                 content.style.transition = "0s";
 
-                menu.style.width = "260px";
-                content.style.marginLeft = "260px";
+                menu.style.width = "15vw";
+                content.style.marginLeft = "15vw";
             }
         }
     }
     </script>
 </nav> 
-        <?php  include './menu.php';?>
+        <?php  require_once './menu.php';?>
 <?php
