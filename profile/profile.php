@@ -1,16 +1,16 @@
 <?php 
-require_once('./config.php');
+require_once('../config.php');
 ?>
 
 <html>
     <head>
-        <link rel="stylesheet" href="./general.css">
-        <title> Contact </title>
+        <link rel="stylesheet" href="../general.css">
+        <title> Profile </title>
     </head>
     
     <body>
         <div id="content" style="margin-left:0px">
-            Contact page
+            Profile page
         </div> 
 
 	</body>
