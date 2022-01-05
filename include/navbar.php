@@ -36,13 +36,6 @@ function displayButtons($dictLinks) {
         <?php 
         displayButtons($commonLinks);
 
-        if(!$current_user->isLogged()) {
-            displayButtons($loginLinks);
-        } else {
-            displayButtons($profileLinks);
-            echo '<a href="' . $root . '/index.php?logout=1" onclick="return confirm(\'Are you sure to logout?\');">logout</a>';
-        }
-
         if($current_user->isAtLeast("manager")) {
             displayButtons($managerLinks);
         }
@@ -52,6 +45,14 @@ function displayButtons($dictLinks) {
         ?>
         <span style="width:50%; display:block"> </span>
         <a href="#">Welcome, <?php echo $current_user->username() ?></a>
+        <?php
+        if(!$current_user->isLogged()) {
+            displayButtons($loginLinks);
+        } else {
+            displayButtons($profileLinks);
+            echo '<a href="' . $root . '/index.php?logout=1" onclick="return confirm(\'Are you sure to logout?\');">logout</a>';
+        }
+        ?>
     </div>
 
     <script type="text/javascript">

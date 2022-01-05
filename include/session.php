@@ -18,8 +18,8 @@ class User{
     public function isLogged() { return $this->isLogged; }
 
     public function login($link, $username, $password) {
-        $querry = "SELECT Username, Email, Role, U_ID FROM Users WHERE Username = '$username' and Password = SHA('$password')";
-        $result = mysqli_query($link, $querry);
+        $query = "SELECT Username, Email, Role, U_ID FROM Users WHERE Username = '$username' and Password = SHA('$password')";
+        $result = mysqli_query($link, $query);
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_array($result);
@@ -34,16 +34,16 @@ class User{
     }
 
     public function register($link, $username, $email, $password) {
-        $querry = "INSERT INTO Users (Username, Email, Password, Role) VALUES ('$username', '$email', SHA('$password'), '0')";
-        if(mysqli_query($link, $querry)) {
+        $query = "INSERT INTO Users (Username, Email, Password, Role) VALUES ('$username', '$email', SHA('$password'), '0')";
+        if(mysqli_query($link, $query)) {
             return true;
         }
         return false;
     }
 
     public static function existsInDB($link, $username) {
-        $querry = "SELECT Username, Email, Role, U_ID FROM Users WHERE Username = '$username'";
-        $result = mysqli_query($link, $querry);
+        $query = "SELECT Username, Email, Role, U_ID FROM Users WHERE Username = '$username'";
+        $result = mysqli_query($link, $query);
 
         if (mysqli_num_rows($result) == 1)
             return true;

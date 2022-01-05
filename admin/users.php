@@ -16,14 +16,7 @@ if (!$current_user->isAtLeast("admin")) {
         <div id="content" style="margin-left:0px">
             User admin page
             <?php 
-            $querry = "SELECT Username, Email, Role FROM Users";
-            $result = mysqli_query($link, $querry);
-            while ($row = mysqli_fetch_array($result)) {
-                $rows[] = $row;
-            }
-            foreach($rows as $row) {
-                printf("<p> %s / %s / %d </p>", $row['Username'], $row['Email'], $row['Role']);
-            }
+                DB::displayTable('Users', 'U_ID != ' . $current_user->id());
             ?>
         </div> 
 
