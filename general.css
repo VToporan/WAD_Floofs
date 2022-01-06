@@ -3,6 +3,7 @@
 }
 
 body {
+    min-width: 720px;
     margin: 0%;
     padding: 0%;
 }
@@ -35,7 +36,6 @@ input {
     margin: 0;
     background-color: #FF90C6;
     list-style-type: none;
-    overflow: hidden;
     top: 0;
     position: fixed;
     display: flex;
@@ -46,12 +46,13 @@ input {
 }
 
 #nav a {
+    background-color: #FF90C6;
     color: white;
     padding: 0 15; 
     text-decoration: none;
-    display: block;
     line-height: 74px;
-    height: 100%;
+    display: block;
+    box-shadow: inset 0px 0px 2px 1px #EF80B6;
 }
 
 #nav a:hover {
@@ -117,6 +118,14 @@ input {
     display: block;
     width: 100%;
     border: 3px solid black;
+}
+
+#drop {
+    display:none;
+}
+
+#dropdown:hover #drop{
+    display:block;
 }
 
 .submit-button {

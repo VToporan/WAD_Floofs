@@ -43,8 +43,9 @@ function displayButtons($dictLinks) {
             displayButtons($adminLinks);
         }
         ?>
-        <span style="width:50%; display:block"> </span>
+        <span style="display:block; right:0; position:absolute" id="dropdown">
         <a href="#">Welcome, <?php echo $current_user->username() ?></a>
+        <div id="drop">
         <?php
         if(!$current_user->isLogged()) {
             displayButtons($loginLinks);
@@ -53,6 +54,8 @@ function displayButtons($dictLinks) {
             echo '<a href="' . $root . '/index.php?logout=1" onclick="return confirm(\'Are you sure to logout?\');">logout</a>';
         }
         ?>
+        </div>
+        </span>
     </div>
 
     <script type="text/javascript">
