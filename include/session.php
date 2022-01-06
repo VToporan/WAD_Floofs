@@ -75,10 +75,4 @@ if (isset($_GET['logout'])) {
     header("location: ./index.php");
 }
 
-function error($message) {
-    echo '<div id="error">';
-    echo $message;
-    echo '</div>';
-}
-
 ?>

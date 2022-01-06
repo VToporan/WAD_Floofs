@@ -20,7 +20,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <html>
     <head>
-        <link rel="stylesheet" href="../general.css">
         <title> Adoption </title>
     </head>
     

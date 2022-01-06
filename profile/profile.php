@@ -4,7 +4,6 @@ require_once('../config.php');
 
 <html>
     <head>
-        <link rel="stylesheet" href="../general.css">
         <title> Profile </title>
     </head>
     

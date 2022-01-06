@@ -4,7 +4,6 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="../general.css">
         <title> Store </title>
     </head>
     

@@ -8,7 +8,6 @@ if (!$current_user->isAtLeast("admin")) {
 
 <html>
     <head>
-        <link rel="stylesheet" href="../general.css">
         <title> Users </title>
     </head>
     

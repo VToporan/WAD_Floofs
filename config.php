@@ -12,4 +12,17 @@ if ($link === false) {
 }
 $current_user = $_SESSION['user'];
 DB::setLink($link);
+
+function error($message) {
+    echo '<div id="error">';
+    echo $message;
+    echo '</div>';
+}
 ?>
+
+<head>
+<link href='https://fonts.googleapis.com/css?family=Dekko' rel='stylesheet'>
+<link rel="stylesheet" href="/Floofs/general.css">
+</head>
+
+<?php
