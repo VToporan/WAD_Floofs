@@ -22,7 +22,9 @@ function error($message) {
 
 <head>
 <link href='https://fonts.googleapis.com/css?family=Dekko' rel='stylesheet'>
-<link rel="stylesheet" href="/Floofs/general.css">
+<link rel="stylesheet" href="/Floofs/css/general.css">
+<link rel="stylesheet" media="screen and (min-width: 1080px)" href="/Floofs/css/widescreen.css">
+<link rel="stylesheet" media="screen and (max-width: 720px)" href="/Floofs/css/smallscreen.css">
 </head>
 
 <?php

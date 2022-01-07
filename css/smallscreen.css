@@ -1,0 +1,114 @@
+input {
+    font-size: 25px;
+    padding: 12px 20px;
+    margin: 20px 0; 
+}
+
+#nav {
+    font-size: 20px;
+}
+
+#nav a {
+    background-color: #FF90C6;
+    color: white;
+    padding: 0 15; 
+    text-decoration: none;
+    line-height: 74px;
+    float: left;
+    display: block;
+    box-shadow: inset 0px 0px 2px 1px #EF80B6;
+}
+
+#nav a:hover {
+    background-color: #FC46AA;
+    background-color: #101010;
+}
+
+#nav a:active {
+    background-color: #FA42A8;
+    background-color: #505050;
+}
+
+#menu {
+    background-color: #E5B0D0;
+    font-size: 30px;
+    text-align: center;
+    overflow-x: hidden;
+    top: 74;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 0;
+}
+
+#menu a {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    line-height: 58px;
+    display: block;
+    height: 58px;
+    width: 100%;
+}
+
+#menu a:hover {
+    background-color: #202020;
+}
+
+#menu a:active {
+    background-color: #FA42A8;
+    background-color: #505050;
+}
+
+#content {
+    font-size: 60px;
+    padding: 74px 20px 10px 20px;
+    margin-left: 0px;
+    min-width: 800px;
+}
+
+#footnote {
+    text-align: center; 
+    position: absolute;
+    bottom: 90;
+    display: block;
+    width: 100%;
+}
+
+#error {
+    background-color: red;
+    margin:auto;
+    text-align: center; 
+    display: block;
+    width: 100%;
+    border: 3px solid black;
+}
+
+#drop {
+    display:none;
+}
+
+#dropdown {
+    float: right;
+}
+
+#dropdown:hover #drop{
+    display:block;
+}
+
+.submit-button {
+    color: white;
+    background-color: #FF90C6;
+    font-size: 50px;
+    text-align: center;
+    line-height: 60px;
+    margin-top: 20px;
+    height: 60px;
+    width: 100%;
+    border: none;
+}
+
+.submit-button:hover {
+    background-color: #FF70A6;
+}
+

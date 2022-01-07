@@ -15,10 +15,10 @@ $profileLinks = [
     "profile" => "profile/profile.php",
 ];
 $managerLinks = [
-    "inventory" => "manager/inventory.php",
+    "manager" => "manager/inventory.php",
 ];
 $adminLinks = [
-    "users" => "admin/users.php",
+    "admin" => "admin/users.php",
 ];
 
 
@@ -43,7 +43,7 @@ function displayButtons($dictLinks) {
             displayButtons($adminLinks);
         }
         ?>
-        <span style="display:block; right:0; position:absolute" id="dropdown">
+        <div id="dropdown">
         <a href="#">Welcome, <?php echo $current_user->username() ?></a>
         <div id="drop">
         <?php
@@ -55,7 +55,7 @@ function displayButtons($dictLinks) {
         }
         ?>
         </div>
-        </span>
+        </div>
     </div>
 
     <script type="text/javascript">
