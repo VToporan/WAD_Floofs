@@ -14,6 +14,7 @@ $current_user = $_SESSION['user'];
 DB::setLink($link);
 
 function error($message) {
+    if(!$message) return;
     echo '<div id="error">';
     echo $message;
     echo '</div>';

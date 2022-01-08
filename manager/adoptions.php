@@ -4,6 +4,15 @@ if (!$current_user->isAtLeast("manager")) {
     mysqli_close($link);
     header("location: ../index.php");
 }
+
+$table = 'Adoption';
+$err = "";
+if(isset($_GET['delete'])) {
+    $id = $_GET['delete'];
+    if(!DB::delete($table, $id)) {
+        $err = "Could not delete " . $id . "!";
+    }
+}
 ?>
 
 <html>
@@ -15,7 +24,8 @@ if (!$current_user->isAtLeast("manager")) {
         <div id="content" style="margin-left:0px">
             Adoptions page
             <?php
-                DB::displayTable('Adoption');
+                error($err);
+                DB::displayTable($table);
             ?>
         </div> 
 

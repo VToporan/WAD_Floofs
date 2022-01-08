@@ -4,6 +4,15 @@ if (!$current_user->isAtLeast("admin")) {
     mysqli_close($link);
     header("location: ../index.php");
 }
+
+$table = 'Users';
+$err = "";
+if(isset($_GET['delete'])) {
+    $id = $_GET['delete'];
+    if(!DB::delete($table, $id)) {
+        $err = "Could not delete " . $id . "!";
+    }
+}
 ?>
 
 <html>
@@ -15,7 +24,8 @@ if (!$current_user->isAtLeast("admin")) {
         <div id="content" style="margin-left:0px">
             User admin page
             <?php 
-                DB::displayTable('Users', 'U_ID != ' . $current_user->id());
+                error($err);
+                DB::displayTable($table, DB::tablePK($table) . ' != ' . $current_user->id());
             ?>
         </div> 
 

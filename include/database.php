@@ -18,6 +18,12 @@ class DB{
         return mysqli_query(self::$link, $query);
     }
 
+    public static function delete($table, $id) {
+        $pkName = self::tablePK($table);
+        $query = "DELETE FROM " . $table . " WHERE " . $pkName . " = " . $id;
+        return mysqli_query(self::$link, $query);
+    }
+
     public static function tableHeader($table) {
         $headerQuery = "SHOW COLUMNS FROM " . $table;
         $columns = mysqli_query(self::$link, $headerQuery);
