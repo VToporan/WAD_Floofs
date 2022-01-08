@@ -6,10 +6,14 @@ if (!$current_user->isAtLeast("admin")) {
 }
 
 $table = 'Users';
+$pkName = DB::tablePK($table);
+$condition = $pkName . "!=" . $current_user->id();
 $err = "";
 if(isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    if(!DB::delete($table, $id)) {
+    $result = DB::delete($table, $id, [$condition]);
+    var_dump($result);
+    if(!1) {
         $err = "Could not delete " . $id . "!";
     }
 }
@@ -22,10 +26,10 @@ if(isset($_GET['delete'])) {
     
     <body>
         <div id="content" style="margin-left:0px">
-            User admin page
             <?php 
+                echo "View table: " . $table;
                 error($err);
-                DB::displayTable($table, DB::tablePK($table) . ' != ' . $current_user->id());
+                DB::displayTable($table, [$condition]);
             ?>
         </div> 
 

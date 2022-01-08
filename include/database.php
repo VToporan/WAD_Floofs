@@ -8,7 +8,7 @@ class DB{
 
     private static function applyCondition(&$query, $condition = null) {
         if (!is_null($condition)) {
-            $query .= " WHERE " . $condition;
+            $query .= " WHERE " . join(" AND ", $condition);
         }
     }
 
@@ -18,9 +18,11 @@ class DB{
         return mysqli_query(self::$link, $query);
     }
 
-    public static function delete($table, $id) {
+    public static function delete($table, $id, $condition = null) {
         $pkName = self::tablePK($table);
-        $query = "DELETE FROM " . $table . " WHERE " . $pkName . " = " . $id;
+        $query = "DELETE FROM " . $table;
+        $condition[] = $pkName . "=" . $id;
+        self::applyCondition($query, $condition);
         return mysqli_query(self::$link, $query);
     }
 
