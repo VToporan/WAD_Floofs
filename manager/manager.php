@@ -8,12 +8,12 @@ if (!$current_user->isAtLeast("manager")) {
 
 <html>
     <head>
-        <title> Inventory </title>
+        <title> Manager </title>
     </head>
     
     <body>
         <div id="content" style="margin-left:0px">
-            Inventory page
+            Manager page
         </div> 
 
 	</body>

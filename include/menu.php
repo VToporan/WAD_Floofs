@@ -18,6 +18,11 @@ $dirLinks = [
     "profile" => [
         "main" => "profile.php",
     ],
+    "manager" => [
+        "main" => "manager.php",
+        "inventory" => "inventory.php",
+        "adoptions" => "adoptions.php",
+    ],
 ];
 
 function displayMenuButtons($links) {

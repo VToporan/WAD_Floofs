@@ -8,12 +8,15 @@ if (!$current_user->isAtLeast("manager")) {
 
 <html>
     <head>
-        <title> Inventory </title>
+        <title> Adoptions </title>
     </head>
     
     <body>
         <div id="content" style="margin-left:0px">
-            Inventory page
+            Adoptions page
+            <?php
+                DB::displayTable('Adoption');
+            ?>
         </div> 
 
 	</body>
