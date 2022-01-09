@@ -25,7 +25,13 @@ if(isset($_GET['delete'])) {
             Adoptions page
             <?php
                 error($err);
-                DB::displayTable($table);
+
+                if(isset($_REQUEST['insert'])) {
+                    DB::displayInsert($table);
+                }
+                else {
+                    DB::displayTable($table);
+                }
             ?>
         </div> 
 

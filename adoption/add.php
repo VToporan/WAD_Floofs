@@ -6,6 +6,7 @@ if(!$current_user->isLogged()){
 
 $err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    var_dump($_FILES);
     $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
     $description = mysqli_real_escape_string($link, $_REQUEST['description']);
     $id = $current_user->id();

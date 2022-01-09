@@ -11,9 +11,7 @@ $condition = $pkName . "!=" . $current_user->id();
 $err = "";
 if(isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    $result = DB::delete($table, $id, [$condition]);
-    var_dump($result);
-    if(!1) {
+    if(!DB::delete($table, $id, [$condition])) {
         $err = "Could not delete " . $id . "!";
     }
 }
@@ -27,9 +25,12 @@ if(isset($_GET['delete'])) {
     <body>
         <div id="content" style="margin-left:0px">
             <?php 
-                echo "View table: " . $table;
                 error($err);
-                DB::displayTable($table, [$condition]);
+                if(isset($_REQUEST['insert'])) {
+                    DB::displayInsert($table);
+                } else {
+                    DB::displayTable($table, [$condition]);
+                }
             ?>
         </div> 
 
