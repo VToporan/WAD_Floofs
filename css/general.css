@@ -104,13 +104,17 @@ input {
     width: 100%;
 }
 
-#error {
+#error, #message {
     background-color: red;
     margin:auto;
     text-align: center; 
     display: block;
     width: 100%;
     border: 3px solid black;
+}
+
+#message {
+    background-color: #FF90C6;
 }
 
 #drop {

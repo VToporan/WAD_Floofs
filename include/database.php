@@ -12,7 +12,7 @@ class DB{
         }
     }
 
-    public static function select($columns, $table, $condition = null) {
+    public static function select($table, $columns, $condition = null) {
         $query = "SELECT " . join(", ", $columns) . " FROM " . $table;
         self::applyCondition($query, $condition);
         return mysqli_query(self::$link, $query);
@@ -28,6 +28,16 @@ class DB{
 
     public static function insert($table, $columns, $data) {
         $query = "INSERT INTO $table (" . join(", ", $columns) . ") VALUES (" . join(", ", $data) . ")";
+        return mysqli_query(self::$link, $query);
+    }
+
+    public static function update($table, $columns, $data, $condition = null) {
+        $query = "UPDATE " . $table . " SET ";
+        foreach(array_combine($columns, $data) as $c=>$d) {
+            $query .= " $c='$d' ";
+        }
+        self::applyCondition($query, $condition);
+        echo $query;
         return mysqli_query(self::$link, $query);
     }
 

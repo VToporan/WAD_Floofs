@@ -19,6 +19,13 @@ function error($message) {
     echo $message;
     echo '</div>';
 }
+
+function message($message) {
+    if(!$message) return;
+    echo '<div id="message">';
+    echo $message;
+    echo '</div>';
+}
 ?>
 
 <head>

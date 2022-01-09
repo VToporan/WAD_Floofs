@@ -17,6 +17,7 @@ $dirLinks = [
     ],
     "profile" => [
         "main" => "profile.php",
+        "change password" => "pass.php",
     ],
     "manager" => [
         "main" => "manager.php",

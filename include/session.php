@@ -1,4 +1,5 @@
 <?php
+require_once('database.php');
 class User{
     private $username = 'Guest';
     private $email = 'guest@example.com';

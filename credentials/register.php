@@ -1,37 +1,33 @@
 <?php
-require_once('../config.php');
+require_once("../config.php");
 $err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $allGood = true;
-    $username = mysqli_real_escape_string($link, $_REQUEST['user']);
-    $email = mysqli_real_escape_string($link, $_REQUEST['email']);
-    $password = mysqli_real_escape_string($link, $_REQUEST['password']);
-    $repeatPassword = mysqli_real_escape_string($link, $_REQUEST['repeatPassword']);
+    $username = mysqli_real_escape_string($link, $_REQUEST["user"]);
+    $email = mysqli_real_escape_string($link, $_REQUEST["email"]);
+    $password = mysqli_real_escape_string($link, $_REQUEST["password"]);
+    $repeatPassword = mysqli_real_escape_string($link, $_REQUEST["repeatPassword"]);
 
+    try {
     if ($password != $repeatPassword) {
-        $err = 'Passwords do not match!';
-        $allGood = false;
+        throw new Exception("Passwords do not match!");
     }
 
     if (User::existsInDB($link, $username)) {
-        $err = 'Username already taken!';
-        $allGood = false;
+        throw new Exception("Username already taken!");
     }
 
-    if ($allGood) {
-        if (!$current_user->register($link, $username, $email, $password)) {
-            $err = 'Something went rong with the registration';
-            $allGood = false;
-        }
-
-        if (!$current_user->login($link, $username, $password)) {
-            $err = 'Something went wrong when loggin in';
-            $allGood = false;
-        }
+    if (!$current_user->register($link, $username, $email, $password)) {
+        throw new Exception("Something went rong with the registration");
     }
 
-    if ($allGood) { 
-        header("location: ../index.php");        
+    if (!$current_user->login($link, $username, $password)) {
+        throw new Exception("Something went wrong when loggin in");
+    }
+
+    header("location: ../index.php");        
+    }
+    catch(Exception $e) {
+        $err = $e->getMessage();
     }
 }
 ?>
