@@ -5,16 +5,9 @@ if (!$current_user->isAtLeast("admin")) {
     header("location: ../index.php");
 }
 
-$table = 'Users';
+$table = "Users";
 $pkName = DB::tablePK($table);
-$condition = $pkName . "!=" . $current_user->id();
-$err = "";
-if(isset($_GET['delete'])) {
-    $id = $_GET['delete'];
-    if(!DB::delete($table, $id, [$condition])) {
-        $err = "Could not delete " . $id . "!";
-    }
-}
+$condition = [$pkName . "!=" . $current_user->id()];
 ?>
 
 <html>
@@ -25,12 +18,7 @@ if(isset($_GET['delete'])) {
     <body>
         <div id="content" style="margin-left:0px">
             <?php 
-                error($err);
-                if(isset($_REQUEST['insert'])) {
-                    DB::displayInsert($table);
-                } else {
-                    DB::displayTable($table, [$condition]);
-                }
+            Template::adminPage($table, $condition);
             ?>
         </div> 
 

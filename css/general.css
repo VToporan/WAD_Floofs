@@ -3,7 +3,6 @@
 }
 
 body {
-    min-width: 720px;
     margin: 0%;
     padding: 0%;
 }
@@ -90,7 +89,7 @@ input {
 }
 
 #content {
-    font-size: 60px;
+    font-size: 30px;
     padding: 74px 20px 10px 20px;
     margin-left: 0px;
     display: block;
@@ -104,7 +103,7 @@ input {
     width: 100%;
 }
 
-#error, #message {
+#error{
     background-color: red;
     margin:auto;
     text-align: center; 
@@ -115,6 +114,11 @@ input {
 
 #message {
     background-color: #FF90C6;
+    margin:auto;
+    text-align: center; 
+    display: block;
+    width: 100%;
+    box-shadow: inset 0px 0px 5px 1px #5F80B6;
 }
 
 #drop {

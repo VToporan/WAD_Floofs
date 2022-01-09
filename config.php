@@ -3,6 +3,7 @@ $path = '/opt/lampp/htdocs/Floofs/include';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);;
 require_once('session.php');
 require_once('database.php');
+require_once('templates.php');
 require_once('navbar.php');
 require_once('menu.php');
 
@@ -31,7 +32,7 @@ function message($message) {
 <head>
 <link href='https://fonts.googleapis.com/css?family=Dekko' rel='stylesheet'>
 <link rel="stylesheet" href="/Floofs/css/general.css">
-<link rel="stylesheet" media="screen and (min-width: 1080px)" href="/Floofs/css/widescreen.css">
+<link rel="stylesheet" media="screen and (min-width: 1920px)" href="/Floofs/css/widescreen.css">
 <link rel="stylesheet" media="screen and (max-width: 720px)" href="/Floofs/css/smallscreen.css">
 </head>
 

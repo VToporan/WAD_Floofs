@@ -82,7 +82,8 @@ class DB{
         return true;
     }
 
-    private static function getColumnNames($header) {
+    public static function getColumnNames($table) {
+        $header = self::tableHeader($table);
         if(!$header) {
             error("No columns found!");
             return;
@@ -116,7 +117,7 @@ class DB{
         printf("<td> %s </td>", $cellData);
     }
 
-    private static function displayAnchor($action, $id, $confirm = null) {
+    public static function displayAnchor($action, $id, $confirm = null) {
         echo "<td>"; 
         $ref = sprintf("href=\"%s?%s=%s\"", $_SERVER["PHP_SELF"], $action, $id);
         $conf = "";
@@ -146,10 +147,9 @@ class DB{
     }
 
     public static function displayTable($table, $condition = null) {
-        $header = self::tableHeader($table);
         $data = self::tableData($table, $condition);
         $pkName = self::tablePK($table);
-        $columnNames = self::getColumnNames($header);
+        $columnNames = self::getColumnNames($table);
         
         echo "<div style=\"display:block\"> Table - $table</div>"; 
         self::displayAnchor("insert", true);
@@ -171,9 +171,8 @@ class DB{
     }
 
     public static function displayInsert($table, $condition = null) {
-        $header = self::tableHeader($table);
         $pkName = self::tablePK($table);
-        $columnNames = self::getColumnNames($header);
+        $columnNames = self::getColumnNames($table);
         $columnNames = array_diff($columnNames, [$pkName]);
         $err = "";
 

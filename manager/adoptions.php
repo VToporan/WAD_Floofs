@@ -5,14 +5,7 @@ if (!$current_user->isAtLeast("manager")) {
     header("location: ../index.php");
 }
 
-$table = 'Adoption';
-$err = "";
-if(isset($_GET['delete'])) {
-    $id = $_GET['delete'];
-    if(!DB::delete($table, $id)) {
-        $err = "Could not delete " . $id . "!";
-    }
-}
+$table = "Adoptions";
 ?>
 
 <html>
@@ -22,17 +15,9 @@ if(isset($_GET['delete'])) {
     
     <body>
         <div id="content" style="margin-left:0px">
-            Adoptions page
-            <?php
-                error($err);
-
-                if(isset($_REQUEST['insert'])) {
-                    DB::displayInsert($table);
-                }
-                else {
-                    DB::displayTable($table);
-                }
-            ?>
+        <?php
+        Template::adminPage($table);
+        ?>
         </div> 
 
 	</body>

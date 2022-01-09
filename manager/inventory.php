@@ -4,6 +4,8 @@ if (!$current_user->isAtLeast("manager")) {
     mysqli_close($link);
     header("location: ../index.php");
 }
+
+$table = "Items";
 ?>
 
 <html>
@@ -13,7 +15,9 @@ if (!$current_user->isAtLeast("manager")) {
     
     <body>
         <div id="content" style="margin-left:0px">
-            Inventory page
+        <?php
+        Template::adminPage($table);
+        ?>
         </div> 
 
 	</body>

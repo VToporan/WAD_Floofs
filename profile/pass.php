@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <html>
     <head>
-        <title> Register </title>
+        <title> Change Password </title>
     </head>
     <body>
         <div id="content" style="margin-left:0px">

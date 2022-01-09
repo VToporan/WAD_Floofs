@@ -1,5 +1,5 @@
 <?php
-require_once('database.php');
+require_once('../config.php');
 class User{
     private $username = 'Guest';
     private $email = 'guest@example.com';
@@ -11,6 +11,7 @@ class User{
         "manager" => 1,
         "admin" => 2,
     ];
+    private $items = array();
 
     public function username() { return $this->username; }
     public function email() { return $this->email; }
