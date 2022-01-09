@@ -93,7 +93,7 @@ input {
     font-size: 60px;
     padding: 74px 20px 10px 20px;
     margin-left: 0px;
-    min-width: 800px;
+    display: block;
 }
 
 #footnote {
@@ -141,3 +141,16 @@ input {
     background-color: #FF70A6;
 }
 
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 600px;
+    width: 600px;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none;
+    height: 600px;
+    width: 600px;
+}
