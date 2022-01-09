@@ -59,6 +59,10 @@ class User{
         }
         return $this->role >= $cmpRole;
     }
+
+    public function displayCart() {
+        if(empty($this->items)) { message("You have no items in your cart so far."); }
+    }
 }
 
 

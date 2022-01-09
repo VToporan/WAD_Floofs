@@ -24,6 +24,11 @@ $dirLinks = [
         "inventory" => "inventory.php",
         "adoptions" => "adoptions.php",
     ],
+    "store" => [
+        "main" => "store.php",
+        "cats" => "store.php?category=0",
+        "dogs" => "store.php?category=1",
+    ],
 ];
 
 function displayMenuButtons($links) {
