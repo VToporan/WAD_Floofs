@@ -19,5 +19,18 @@ class Template {
 
         DB::displayTable($table, $condition);
     }
+
+
+    public static function actionButton($action, $id, $confirm = null) {
+        $conf = "";
+        if(!is_null($confirm)) {
+            $conf = sprintf("onclick=\"return confirm('%s');\"", $confirm);
+        } 
+        echo "<td>"; 
+        echo "<form action=\"". $_SERVER["PHP_SELF"] . "\" method=\"post\" enctype=\"multipart/form-data\">";
+        echo "<button type=\"submit\" class=\"$action-button\" name=\"$action\" value=$id $conf> $action </button>";
+        echo "</form>";
+        echo "</td>";
+    }
 }
 ?>

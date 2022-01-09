@@ -13,6 +13,7 @@ $loginLinks = [
 ];
 $profileLinks = [
     "profile" => "profile/profile.php",
+    "cart" => "profile/cart.php",
 ];
 $managerLinks = [
     "manager" => "manager/manager.php",

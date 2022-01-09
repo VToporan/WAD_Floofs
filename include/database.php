@@ -37,7 +37,6 @@ class DB{
             $query .= " $c='$d' ";
         }
         self::applyCondition($query, $condition);
-        echo $query;
         return mysqli_query(self::$link, $query);
     }
 
@@ -188,7 +187,7 @@ class DB{
         }
         echo "<input type=\"hidden\" name=\"insert\" value=\"1\" />";
         echo "<span style=\"color: red\"> $err </span>";
-        echo "<button type=\"submit\" class=\"submit-button\" value=\"insert\"> Add </button>";
+        echo "<button type=\"submit\" class=\"submit-button\"> Add </button>";
         echo "</form>";
     }
 

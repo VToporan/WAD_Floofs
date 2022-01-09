@@ -3,7 +3,9 @@ $path = '/opt/lampp/htdocs/Floofs/include';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);;
 require_once('session.php');
 require_once('database.php');
+require_once('user.php');
 require_once('templates.php');
+require_once('item.php');
 require_once('navbar.php');
 require_once('menu.php');
 
@@ -13,6 +15,7 @@ if ($link === false) {
 }
 $current_user = $_SESSION['user'];
 DB::setLink($link);
+Item::init();
 
 function error($message) {
     if(!$message) return;

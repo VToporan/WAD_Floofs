@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php');
+require_once('database.php');
 class Item {
     private $name;
     private $description;
@@ -34,7 +34,7 @@ class Item {
             }
             $dbItem = mysqli_fetch_array($dbItem);
             if ($quantity > $dbItem["Quantity"] || $quantity < 1) {
-                throw new Exception("Invalid quantity!");
+                throw new Exception("Invalid quantity! Item might have gotten out of stock...");
             }
             $this->maxQuantity = $dbItem["Quantity"];
             $this->name = $dbItem["Name"];
@@ -56,8 +56,18 @@ class Item {
         echo "<div class=\"item_categ\"> $this->category </div>";
         echo "<div class=\"item_price\"> $this->price </div>";
         echo "<div class=\"item_quant\"> $this->quantity </div>";
+        Template::actionButton("remove", $this->id, "Are you sure you want to remove $this->name?");
         echo "</div>";
     }
+
+    public function updateQantity() {
+        $diff = $this->maxQuantity - $this->quantity;
+        $result = DB::update(self::$table, ["Quantity"], [$diff], [self::$pk . "=" . $this->id]);
+        if(!$result) {
+            error("Error updateing inventory!");
+        }
+    }
+
     public function name() { return $this->name; }
     public function description() { return $this->description; }
     public function price() { return $this->price; }
@@ -67,7 +77,4 @@ class Item {
     public function image() { return $this->image; }
     public function id() { return $this->id; }
 }
-
-Item::init();
-
 ?>
