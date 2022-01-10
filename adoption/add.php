@@ -18,9 +18,9 @@ $default = [
     
     <body>
         <div id="content" style="margin-left:0px">
-<?php
-DB::displayInsert($table, $condition=null, $defaultValues=$default, $title="Add adoption listing");
-?>
+        <?php
+        DB::displayInsert($table, $condition=null, $defaultValues=$default, $title="Add adoption listing");
+        ?>
         </div> 
 	</body>
 </html>

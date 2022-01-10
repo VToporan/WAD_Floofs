@@ -3,30 +3,26 @@ $file = basename($_SERVER["PHP_SELF"]);
 $dir = basename(dirname($_SERVER["PHP_SELF"]));
 $dirLinks = [
     "Floofs" => [
-       "main" => "index.php", 
        "contact" => "contact.php", 
     ],
     "adoption" => [
-        "main" => "adoption.php",
         "add listing" => "add.php",
         "browse listings" => "browse.php",
+        "my listings" => "listings.php",
     ],
     "credentials" => [
         "login" => "login.php",
         "register" => "register.php",
     ],
     "profile" => [
-        "main" => "profile.php",
         "change password" => "pass.php",
         "cart" => "cart.php",
     ],
     "manager" => [
-        "main" => "manager.php",
         "inventory" => "inventory.php",
         "adoptions" => "adoptions.php",
     ],
     "store" => [
-        "main" => "store.php",
         "cats" => "store.php?category=0",
         "dogs" => "store.php?category=1",
     ],

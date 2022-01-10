@@ -23,6 +23,7 @@ class Template {
             return;
         }
 
+        var_dump($_REQUEST);
         DB::displayTable($table, $condition);
     }
 

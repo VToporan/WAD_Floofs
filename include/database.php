@@ -148,13 +148,17 @@ class DB{
 
     }
 
-    public static function displayTable($table, $condition = null) {
+    public static function displayTable($table, $condition = null, $title = null) {
         $data = self::tableData($table, $condition);
         $pkName = self::tablePK($table);
         $columnNames = self::getColumnNames($table);
         
-        echo "<div style=\"display:block\"> Table - $table</div>"; 
-        Template::actionButton("insert", true);
+        if(!is_null($title)) {
+            echo "<div style=\"display:block\"> $title </div>"; 
+        } else {
+            echo "<div style=\"display:block\"> Table - $table</div>"; 
+            Template::actionButton("insert", true);
+        }
         echo "<table>";
         self::displayHeader($columnNames);
         self::displayData($data, $columnNames, $pkName);
@@ -209,7 +213,7 @@ class DB{
         echo "</form>";
     }
 
-    public static function displayEdit($table, $id, $condition = null) {
+    public static function displayEdit($table, $id, $condition = null, $defaultValues = null) {
         $pkName = self::tablePK($table);
         $columnNames = self::getColumnNames($table);
         $columnNames = array_diff($columnNames, [$pkName, "Password", "Image"]);
@@ -235,6 +239,12 @@ class DB{
         echo "<div style=\"display:block\"> Edit table $table on id $id </div>"; 
         Template::actionButton('back', true);
         echo "<form action=\"". $_SERVER["PHP_SELF"] . "\" method=\"post\" enctype=\"multipart/form-data\">";
+        if(!is_null($defaultValues)) {
+            foreach($defaultValues as $col=>$data) {
+                $columnNames = array_diff($columnNames, [$col]);
+                self::displayInput($col, $defaultValue=$data, $edit=null, $hidden=true);
+            }
+        }
         foreach($columnNames as $column) {
             self::displayInput($column, $dbItem[$column], $edit=true);
         }
