@@ -3,8 +3,12 @@ require_once('../config.php');
 
 $err = "";
 $condition = null;
+$dispCategory = "";
+$categories = ["- cats", "- dogs"];
 if(isset($_REQUEST["category"])) {
     $category = $_REQUEST["category"];
+    if(isset($categories[$category]))
+        $dispCategory = $categories[$category];
     $condition[] = "Category = $category";
 }
 
@@ -22,8 +26,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <body>
         <div id="content" style="margin-left:0px">
-            <div style="margin:auto"> Store </div>
             <?php
+            echo "<div> Store " . $dispCategory . " </div>";
             error($err);
             Item::displayAll($condition);
             ?>
