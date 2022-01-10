@@ -1,4 +1,5 @@
 <?php
+require_once('templates.php');
 class DB{
     private static $link = "";
 
@@ -138,8 +139,8 @@ class DB{
                 self::displayCell($row, $column);
             }
             $id = $row[$pkName];
-            self::displayAnchor("delete", $id, "Are you sure you want to delete id " . $id);
-            self::displayAnchor("edit", $id);
+            Template::actionButton("delete", $id, "Are you sure you want to delete id " . $id);
+            Template::actionButton("edit", $id);
             echo "</tr>";
         }
 
@@ -151,7 +152,7 @@ class DB{
         $columnNames = self::getColumnNames($table);
         
         echo "<div style=\"display:block\"> Table - $table</div>"; 
-        self::displayAnchor("insert", true);
+        Template::actionButton("insert", true);
         echo "<table>";
         self::displayHeader($columnNames);
         self::displayData($data, $columnNames, $pkName);
@@ -175,17 +176,17 @@ class DB{
         $columnNames = array_diff($columnNames, [$pkName]);
         $err = "";
 
-        if($_SERVER["REQUEST_METHOD"] == "POST") {
+        if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["insert"] == 2) {
             self::handleInput($table, $columnNames, $err);
         }
 
         echo "<div style=\"display:block\"> Add into - $table</div>"; 
-        self::displayAnchor('back', true);
+        Template::actionButton('back', true);
         echo "<form action=\"". $_SERVER["PHP_SELF"] . "\" method=\"post\" enctype=\"multipart/form-data\">";
         foreach($columnNames as $column) {
             self::displayInput($column);
         }
-        echo "<input type=\"hidden\" name=\"insert\" value=\"1\" />";
+        echo "<input type=\"hidden\" name=\"insert\" value=2 />";
         echo "<span style=\"color: red\"> $err </span>";
         echo "<button type=\"submit\" class=\"submit-button\"> Add </button>";
         echo "</form>";

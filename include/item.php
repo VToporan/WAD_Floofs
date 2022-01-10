@@ -50,7 +50,7 @@ class Item {
 
     public function display() {
         echo "<div class=\"item_frame\">"; 
-        echo "<div class=\"item_img\"> <img src=\"data:image/png;base64, $this->image\"> </div>";
+//        echo "<div class=\"item_img\"> <img src=\"data:image/png;base64, $this->image\"> </div>";
         echo "<div class=\"item_name\"> $this->name </div>";
         echo "<div class=\"item_desc\"> $this->description </div>";
         echo "<div class=\"item_categ\"> $this->category </div>";
@@ -83,7 +83,7 @@ class Item {
                 echo "<div class=\"item_name\"> $name </div>";
                 echo "<div class=\"item_desc\"> $description </div>";
                 echo "<div class=\"display_price\"> \$$price </div>";
-                echo "<input type=\"number\" name=\"quantity\" min=0 max=$maxQuantity value=0 form=\"$id\" required>";
+                echo "<input type=\"number\" name=\"quantity\" min=0 max=$maxQuantity value=0 form=\"form$id\" required>";
                 Template::actionButton("add to cart", $id, "Are you sure you want to add $name to cart?");
                 echo "</div>";
             }
