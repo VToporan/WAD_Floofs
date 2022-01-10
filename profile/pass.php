@@ -1,5 +1,8 @@
 <?php
 require_once('../config.php');
+if(!$current_user->isLogged()){
+    header("location: ../index.php");
+}
 $err = "";
 $table = "Users";
 $columns = ["Password"];
