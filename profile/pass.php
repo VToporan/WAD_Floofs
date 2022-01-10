@@ -21,7 +21,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $result = DB::update($table, $columns, [$password], $condition);
         if(!$result) {
-            var_dump($result);
             throw new Exception("Error occured when updating password! Please try again");
         }
 

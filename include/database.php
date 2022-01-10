@@ -227,7 +227,7 @@ class DB{
         try {
             $dbItem = DB::select($table, $columnNames, $condition);
             if (!$dbItem || mysqli_num_rows($dbItem) != 1) { 
-                throw new Exception("Error fetching data!" . var_dump($dbItem)); 
+                throw new Exception("Error fetching data!"); 
             }
             $dbItem = mysqli_fetch_array($dbItem);
         }

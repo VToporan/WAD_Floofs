@@ -4,7 +4,7 @@ $root = '/Floofs';
 $commonLinks = [
     "home" => "index.php",
     "store" => "store/store.php",
-    "adoption" => "adoption/add.php",
+    "adoption" => "adoption/browse.php",
     "contact" => "contact.php",
 ];
 $loginLinks = [
@@ -12,11 +12,11 @@ $loginLinks = [
     "register" => "credentials/register.php",
 ];
 $profileLinks = [
-    "profile" => "profile/profile.php",
+    "profile" => "profile/pass.php",
     "cart" => "profile/cart.php",
 ];
 $managerLinks = [
-    "manager" => "manager/manager.php",
+    "manager" => "manager/inventory.php",
 ];
 $adminLinks = [
     "admin" => "admin/users.php",
