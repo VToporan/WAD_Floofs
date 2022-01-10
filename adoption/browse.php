@@ -14,22 +14,21 @@ require_once('../config.php');
                 $display = ["Image", "Description", "Username", "Email"];
 
                 if ($result) {
-                    echo "<table>";
-                    DB::displayHeader($display);
                     while($row = mysqli_fetch_array($result)) {
-                        echo "<tr>";
                         $user = DB::select("Users", ["Email", "Username"], ["U_ID = " . $row["U_ID"]]);
                         if($user) {
                             $userData = mysqli_fetch_array($user);
                             $row["Email"] = $userData["Email"];
                             $row["Username"] = $userData["Username"];
                         }
-                        foreach($display as $column) {
-                            DB::displayCell($row, $column);
-                        }
-                        echo "</tr>";
+                        echo "<div class=\"store_item\" style=\"background-color:#FF90C6\">"; 
+                        echo "<img src=\"data:image/png;base64,". base64_encode($row["Image"]). "\" class=\"store_img\">";
+                        echo "<div>" . $row["Description"] . "</div>";
+                        echo "<div> Contact </div>";
+                        echo "<div> user: " . $row["Username"] . "</div>";
+                        echo "<div> email: " . $row["Email"] . "</div>";
+                        echo "</div>";
                     }
-                    echo "</table>";
                 }
             ?>
         </div>

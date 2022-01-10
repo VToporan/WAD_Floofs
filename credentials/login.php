@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <span style="color: red"><?php echo $err ?></span>
             <button type="submit" class="submit-button"> Login </button>
         </form>
-        <a href="./register.php"> Are you new? Register here!</a>
+        <a class="main_nav" style="width:100%" href="./register.php"> Are you new? Register here!</a>
         </div>
     </body>
 </html>
