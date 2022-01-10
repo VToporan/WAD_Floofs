@@ -13,7 +13,6 @@ if(!$current_user->isLogged()){
     <body>
         <div id="content" style="margin-left:0px">
         <?php
-        echo "Cart total: \$". $current_user->total();
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             if(isset($_REQUEST["purchase"])) {
                 $current_user->purchaseItems();
@@ -23,6 +22,7 @@ if(!$current_user->isLogged()){
                 $current_user->removeItem($id); 
             }
         } 
+        echo "Cart total: \$". $current_user->total();
         $current_user->displayCart();
         ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

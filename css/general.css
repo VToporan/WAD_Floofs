@@ -229,7 +229,7 @@ button:active {
     background-color: #FF8036;
 }
 
-.insert-button {
+.back-button, .insert-button {
     background-color: #7FE4B6;
     font-size: 30px;
     text-align: center;
