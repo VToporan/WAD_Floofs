@@ -159,6 +159,7 @@ class DB{
             echo "<div style=\"display:block\"> Table - $table</div>"; 
             Template::actionButton("insert", true);
         }
+        if(!mysqli_num_rows($data) == 1) { message("no matching data"); return; }
         echo "<table>";
         self::displayHeader($columnNames);
         self::displayData($data, $columnNames, $pkName);

@@ -69,7 +69,6 @@ class User{
     public function removeItem($id) {
         $item = new Item($id, $this->items[$id]);
         $this->total -= $item->total();
-        message($this->total);
         unset($this->items[$item->id()]);
     }
 

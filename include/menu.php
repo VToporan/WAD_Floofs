@@ -3,6 +3,7 @@ $file = basename($_SERVER["PHP_SELF"]);
 $dir = basename(dirname($_SERVER["PHP_SELF"]));
 $dirLinks = [
     "Floofs" => [
+       "home" => "index.php", 
        "contact" => "contact.php", 
     ],
     "adoption" => [
