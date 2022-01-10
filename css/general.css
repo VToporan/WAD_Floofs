@@ -46,6 +46,16 @@ button:active {
     color: white;
 }
 
+a:hover {
+    background-color: #FC46AA;
+    background-color: #101010;
+}
+
+a:active {
+    background-color: #FA42A8;
+    background-color: #505050;
+}
+
 #nav {
     font-size: 30px;
     padding: 0;
@@ -155,6 +165,17 @@ button:active {
 
 #dropdown:hover #drop{
     display:block;
+}
+
+.main_nav {
+    margin: auto;
+    color: white;
+    background-color: #FF90C6;
+    text-decoration: none;
+    text-align: center;
+    float: left;
+    width: 33%;
+    height: 100%;
 }
 
 .submit-button {
