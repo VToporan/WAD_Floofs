@@ -49,13 +49,12 @@ class Item {
     }
 
     public function display() {
-        echo "<div class=\"item_frame\">"; 
-//        echo "<div class=\"item_img\"> <img src=\"data:image/png;base64, $this->image\"> </div>";
+        echo "<div class=\"store_item\">"; 
+        echo "<img src=\"data:image/png;base64, $this->image\" class=\"store_img\">";
         echo "<div class=\"item_name\"> $this->name </div>";
         echo "<div class=\"item_desc\"> $this->description </div>";
-        echo "<div class=\"item_categ\"> $this->category </div>";
-        echo "<div class=\"item_price\"> $this->price </div>";
-        echo "<div class=\"item_quant\"> $this->quantity </div>";
+        echo "<div class=\"item_quant\"> quantity: $this->quantity </div>";
+        echo "<div class=\"item_price\"> item total: \$" .$this->total() ."</div>";
         Template::actionButton("remove", $this->id, "Are you sure you want to remove $this->name?");
         echo "</div>";
     }
@@ -74,17 +73,22 @@ class Item {
                 $image = base64_encode($item["Image"]);
                 $id = $item[self::$pk];
 
-                if($maxQuantity > 0) {
+                $out = $maxQuantity <= 0;
+                if(!$out) {
                     echo "<div class=\"store_item\">"; 
                 } else {
                     echo "<div class=\"out_item\">"; 
                 }
-//                echo "<div class=\"item_img\"> <img src=\"data:image/png;base64, $image\"> </div>";
+                echo "<img src=\"data:image/png;base64, $image\" class=\"store_img\">";
                 echo "<div class=\"item_name\"> $name </div>";
                 echo "<div class=\"item_desc\"> $description </div>";
                 echo "<div class=\"display_price\"> \$$price </div>";
-                echo "<input type=\"number\" name=\"quantity\" min=0 max=$maxQuantity value=0 form=\"form$id\" required>";
-                Template::actionButton("add to cart", $id, "Are you sure you want to add $name to cart?");
+                if(!$out) {
+                    echo "<input type=\"number\" name=\"quantity\" min=1 max=$maxQuantity value=1 form=\"form$id\" required style=\"width:99%\">";
+                    Template::actionButton("add_to_cart", $id, "Are you sure you want to add $name to cart?");
+                } else {
+                    echo "<div class=\"display_price\"> out of stock :(  </div>";
+                }
                 echo "</div>";
             }
 
@@ -109,5 +113,6 @@ class Item {
     public function category() { return $this->category; }
     public function image() { return $this->image; }
     public function id() { return $this->id; }
+    public function total() { return $this->quantity * $this->price; }
 }
 ?>

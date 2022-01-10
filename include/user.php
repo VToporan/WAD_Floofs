@@ -11,12 +11,14 @@ class User{
         "admin" => 2,
     ];
     private $items = array();
+    private $total = 0;
 
     public function username() { return $this->username; }
     public function email() { return $this->email; }
     public function role() { return $this->role; }
     public function id() { return $this->id; }
     public function isLogged() { return $this->isLogged; }
+    public function total() { return $this->total; }
 
     public function login($link, $username, $password) {
         $query = "SELECT Username, Email, Role, U_ID FROM Users WHERE Username = '$username' and Password = SHA('$password')";
@@ -60,11 +62,15 @@ class User{
     }
 
     public function addItem($item) {
+        $this->total += $item->total();
         $this->items[$item->id()] = $item->quantity();
     }
 
     public function removeItem($id) {
-        unset($this->items[$id]);
+        $item = new Item($id, $this->items[$id]);
+        $this->total -= $item->total();
+        message($this->total);
+        unset($this->items[$item->id()]);
     }
 
     public function displayCart() {
@@ -78,8 +84,8 @@ class User{
     public function purchaseItems() {
         foreach($this->items as $id=>$quantity) {
             $item = new Item($id, $quantity);
-            $item->updateQantity();
             $this->removeItem($id);
+            $item->updateQantity();
         }
     }           
     

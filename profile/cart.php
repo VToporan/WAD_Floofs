@@ -9,8 +9,8 @@ require_once('../config.php');
     
     <body>
         <div id="content" style="margin-left:0px">
-        Cart
         <?php
+        echo "Cart total: \$". $current_user->total();
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             if(isset($_REQUEST["purchase"])) {
                 $current_user->purchaseItems();

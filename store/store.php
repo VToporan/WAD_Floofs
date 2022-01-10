@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <body>
         <div id="content" style="margin-left:0px">
-            Store page
+            <div style="margin:auto"> Store </div>
             <?php
             error($err);
             Item::displayAll($condition);
