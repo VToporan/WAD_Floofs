@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             throw new Exception("Error occured when updating password! Please try again");
         }
 
-        header("location: ./profile.php");
+        $err = "Password changed successfully!";
     }
     catch (Exception $e) {
         $err = $e->getMessage();
