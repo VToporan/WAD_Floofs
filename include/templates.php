@@ -27,7 +27,7 @@ class Template {
             $conf = sprintf("onclick=\"return confirm('%s');\"", $confirm);
         } 
         echo "<td>"; 
-        echo "<form action=\"". $_SERVER["PHP_SELF"] . "\" method=\"post\" enctype=\"multipart/form-data\">";
+        echo "<form action=\"". $_SERVER["PHP_SELF"] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"$id\">";
         echo "<button type=\"submit\" class=\"$action-button\" name=\"$action\" value=$id $conf> $action </button>";
         echo "</form>";
         echo "</td>";

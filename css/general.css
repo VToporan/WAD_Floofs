@@ -162,3 +162,8 @@ input {
     height: 600px;
     width: 600px;
 }
+
+.item_img {
+    width: 400px;
+    height: 400px;
+}

@@ -9,9 +9,9 @@ class Item {
     private $category;
     private $image;
     private $id;
-    private static $table;
-    private static $pk;
-    private static $columns;
+    public static $table;
+    public static $pk;
+    public static $columns;
     public static $categories = [
         0 => "Cat",
         1 => "Dog",
@@ -40,7 +40,7 @@ class Item {
             $this->name = $dbItem["Name"];
             $this->description = $dbItem["Description"];
             $this->price = $dbItem["Price"];
-            $this->category = self::$categories[$dbItem["Categoty"]];
+            $this->category = self::$categories[$dbItem["Category"]];
             $this->image = base64_encode($dbItem["Image"]);
 
         } catch (Exception $e) {
@@ -58,6 +58,39 @@ class Item {
         echo "<div class=\"item_quant\"> $this->quantity </div>";
         Template::actionButton("remove", $this->id, "Are you sure you want to remove $this->name?");
         echo "</div>";
+    }
+
+    public static function displayAll($condition = null) {
+        try {
+            $dbItem = DB::select(self::$table, self::$columns, $condition);
+            if (!$dbItem) { 
+                throw new Exception("Error fetching item data!"); 
+            }
+            while ($item = mysqli_fetch_array($dbItem)) {
+                $name = $item["Name"];
+                $description = $item["Description"];
+                $price = $item["Price"];
+                $maxQuantity = $item["Quantity"];
+                $image = base64_encode($item["Image"]);
+                $id = $item[self::$pk];
+
+                if($maxQuantity > 0) {
+                    echo "<div class=\"store_item\">"; 
+                } else {
+                    echo "<div class=\"out_item\">"; 
+                }
+//                echo "<div class=\"item_img\"> <img src=\"data:image/png;base64, $image\"> </div>";
+                echo "<div class=\"item_name\"> $name </div>";
+                echo "<div class=\"item_desc\"> $description </div>";
+                echo "<div class=\"display_price\"> \$$price </div>";
+                echo "<input type=\"number\" name=\"quantity\" min=0 max=$maxQuantity value=0 form=\"$id\" required>";
+                Template::actionButton("add to cart", $id, "Are you sure you want to add $name to cart?");
+                echo "</div>";
+            }
+
+        } catch (Exception $e) {
+            error($e->getMessage());
+        }
     }
 
     public function updateQantity() {
