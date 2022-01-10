@@ -5,18 +5,10 @@ if(!$current_user->isLogged()){
 }
 
 $err = "";
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    var_dump($_FILES);
-    $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-    $description = mysqli_real_escape_string($link, $_REQUEST['description']);
-    $id = $current_user->id();
-    $insert = "INSERT INTO Adoption (Image, Description, U_ID) VALUES ('$image', '$description', '$id')";
-    if(mysqli_query($link, $insert)) {
-        $err = "All good!";
-    } else {
-        $err = "Something went wrong!";
-    }
-}
+$table = "Adoptions";
+$default = [
+    "U_ID" => $current_user->id(),
+];
 ?>
 
 <html>
@@ -26,14 +18,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <body>
         <div id="content" style="margin-left:0px">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <label><b>Image</b></label>
-                <input type="file" name="image" required>
-                <label><b>Description</b></label>
-                <input type="text" name="description" maxlength="512" placeholder="Description" required>
-                <span style="color: red"><?php echo $err ?></span>
-                <button type="submit" class="submit-button"> Add </button>
-            </form>
+<?php
+DB::displayInsert($table, $condition=null, $defaultValues=$default, $title="Add adoption listing");
+?>
         </div> 
 	</body>
 </html>

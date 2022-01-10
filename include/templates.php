@@ -17,6 +17,12 @@ class Template {
             return;
         }
 
+        if(isset($_REQUEST["edit"])) {
+            $id = $_REQUEST["edit"];
+            DB::displayEdit($table, $id, $condition);
+            return;
+        }
+
         DB::displayTable($table, $condition);
     }
 

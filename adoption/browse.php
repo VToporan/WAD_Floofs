@@ -10,16 +10,26 @@ require_once('../config.php');
     <body>
         <div id="content" style="margin-left:0px">
             <?php
-                $result = DB::select(['Image, Description'], 'Adoption');
+                $result = DB::select("Adoptions", ["Image", "Description", "U_ID"]);
+                $display = ["Image", "Description", "Username", "Email"];
 
                 if ($result) {
-                    while ($row = mysqli_fetch_array($result)) {
-                        $rows[] = $row;
+                    echo "<table>";
+                    DB::displayHeader($display);
+                    while($row = mysqli_fetch_array($result)) {
+                        echo "<tr>";
+                        $user = DB::select("Users", ["Email", "Username"], ["U_ID = " . $row["U_ID"]]);
+                        if($user) {
+                            $userData = mysqli_fetch_array($user);
+                            $row["Email"] = $userData["Email"];
+                            $row["Username"] = $userData["Username"];
+                        }
+                        foreach($display as $column) {
+                            DB::displayCell($row, $column);
+                        }
+                        echo "</tr>";
                     }
-                    foreach($rows as $row) {
-                        echo '<img src="data:image/png;base64,'.base64_encode($row['Image']).'"/>';
-                        printf("<p> %s </p>", $row['Description']);
-                    }
+                    echo "</table>";
                 }
             ?>
         </div>
