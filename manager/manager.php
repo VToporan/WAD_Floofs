@@ -4,6 +4,18 @@ if (!$current_user->isAtLeast("manager")) {
     mysqli_close($link);
     header("location: ../index.php");
 }
+
+$message = "Manage inventory and adoption listings";
+$anchors = [
+    "Inventory" => [
+        "Url" => "./inventory.php",
+        "Image" => "manager/inventory.jpg",
+    ],
+    "Adoptions" => [
+        "Url" => "./adoptions.php",
+        "Image" => "manager/adoptions.jpg",
+    ],
+];
 ?>
 
 <html>
@@ -13,7 +25,9 @@ if (!$current_user->isAtLeast("manager")) {
     
     <body>
         <div id="content" style="margin-left:0px">
-            Manager page
+        <?php
+        Template::mainPage($message, $anchors);
+        ?>
         </div> 
 
 	</body>

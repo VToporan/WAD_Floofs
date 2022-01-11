@@ -16,7 +16,7 @@ $profileLinks = [
     "cart" => "profile/cart.php",
 ];
 $managerLinks = [
-    "manager" => "manager/inventory.php",
+    "manager" => "manager/manager.php",
 ];
 $adminLinks = [
     "admin" => "admin/users.php",
