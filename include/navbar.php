@@ -19,7 +19,7 @@ $managerLinks = [
     "manager" => "manager/manager.php",
 ];
 $adminLinks = [
-    "admin" => "admin/users.php",
+    "admin" => "admin/admin.php",
 ];
 
 

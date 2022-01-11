@@ -23,6 +23,9 @@ $dirLinks = [
         "inventory" => "inventory.php",
         "adoptions" => "adoptions.php",
     ],
+    "admin" => [
+        "users" => "users.php",
+    ],
     "store" => [
         "store" => "store.php",
         "cats" => "store.php?category=0",
