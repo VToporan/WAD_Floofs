@@ -38,5 +38,21 @@ class Template {
         echo "</form>";
         echo "</td>";
     }
+
+    public static function mainPage($title, $anchors) {
+        $root = '/Floofs/images';
+        $width = 100 / count($anchors);
+        echo "<br> $title";
+        echo "<div style=\"width:100%\">";
+        foreach($anchors as $name=>$content) {
+            $url = $content["Url"];
+            $imgSource = $root . "/" . $content["Image"];
+            echo "<a href=\"$url\" class=\"main_nav\" style=\"width:$width%\">";
+            echo $name;
+            echo "<img src=\"$imgSource\" class=\"nav_img\">";
+            echo"</a>";
+        }
+        echo "</div>";
+    }
 }
 ?>
