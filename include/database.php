@@ -252,7 +252,7 @@ class DB{
         echo "<input type=\"hidden\" name=\"edit1\" value=2 />";
         echo "<input type=\"hidden\" name=\"edit\" value=$id />";
         echo "<span style=\"color: red\"> $err </span>";
-        echo "<button type=\"submit\" class=\"submit-button\"> Add </button>";
+        echo "<button type=\"submit\" class=\"submit-button\"> Edit </button>";
         echo "</form>";
     }
 

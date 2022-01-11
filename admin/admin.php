@@ -5,7 +5,7 @@ if (!$current_user->isAtLeast("manager")) {
     header("location: ../index.php");
 }
 
-$message = "Manage inventory and adoption listings";
+$message = "Manage users and user access";
 $anchors = [
     "Users" => [
         "Url" => "./users.php",
