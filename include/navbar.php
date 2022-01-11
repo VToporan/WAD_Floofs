@@ -12,7 +12,6 @@ $loginLinks = [
     "register" => "credentials/register.php",
 ];
 $profileLinks = [
-    "profile" => "profile/profile.php",
     "cart" => "profile/cart.php",
 ];
 $managerLinks = [
@@ -43,20 +42,18 @@ function displayButtons($dictLinks) {
         if($current_user->isAtLeast("admin")) {
             displayButtons($adminLinks);
         }
-        ?>
-        <div id="dropdown">
-        <a href="#">Welcome, <?php echo $current_user->username() ?></a>
-        <div id="drop">
-        <?php
+        echo "<div id=\"dropdown\">";
+        echo "<a href=\"/Floofs/profile/profile.php\">Welcome," . $current_user->username() . "</a>";
+        echo "<div id=\"drop\">";
         if(!$current_user->isLogged()) {
             displayButtons($loginLinks);
         } else {
             displayButtons($profileLinks);
             echo '<a href="' . $root . '/index.php?logout=1" onclick="return confirm(\'Are you sure to logout?\');">logout</a>';
         }
+        echo "</div>";
+        echo "</div>";
         ?>
-        </div>
-        </div>
     </div>
 
     <script type="text/javascript">

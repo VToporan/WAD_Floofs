@@ -79,6 +79,7 @@ a:active {
     float: left;
     display: block;
     box-shadow: inset 0px 0px 2px 1px #EF80B6;
+    box-shadow: inset 0px 0px 3px 3px #FF80B6;
 }
 
 #nav a:hover {
@@ -156,11 +157,20 @@ a:active {
 }
 
 #drop {
+    width:100%;
     display:none;
 }
 
 #dropdown {
+    margin-right: 30px;
+    text-align: center;
+    width: 15%;
     float: right;
+}
+
+#dropdown a {
+    padding: auto;
+    width: 100%;
 }
 
 #dropdown:hover #drop{
