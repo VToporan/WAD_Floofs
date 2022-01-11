@@ -1,6 +1,7 @@
 <?php 
 require_once('../config.php');
 if(!$current_user->isLogged()){
+    mysqli_close($link);
     header("location: ../index.php");
 }
 
