@@ -27,13 +27,17 @@ class Template {
     }
 
 
-    public static function actionButton($action, $id, $confirm = null) {
+    public static function actionButton($action, $id, $confirm = null, $table = null) {
         $conf = "";
+        $class = "";
         if(!is_null($confirm)) {
             $conf = sprintf("onclick=\"return confirm('%s');\"", $confirm);
         } 
+        if(!is_null($table)) {
+            $class = "class=\"table_form\"";
+        }
         echo "<td class=\"button_td\">"; 
-        echo "<form action=\"". $_SERVER["PHP_SELF"] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"form$id\">";
+        echo "<form action=\"". $_SERVER["PHP_SELF"] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"form$id\" $class>";
         echo "<button type=\"submit\" class=\"$action-button\" name=\"$action\" value=$id $conf> $action </button>";
         echo "</form>";
         echo "</td>";
@@ -42,7 +46,7 @@ class Template {
     public static function mainPage($message, $anchors) {
         $root = '/Floofs/images';
         $width = 100 / count($anchors);
-        echo "<br> $message";
+        echo " $message<br><br>";
         echo "<div style=\"width:100%\">";
         foreach($anchors as $name=>$content) {
             $url = $content["Url"];

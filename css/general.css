@@ -24,6 +24,7 @@ input {
 
 table {
     border-collapse: collapse;
+    line-height: 30px;
     width: 100%;
 }
 
@@ -34,6 +35,9 @@ table, th, td {
     font-size: 30px;
 }
 
+button {
+    box-shadow: inset 0px 0px 5px 3px #FF80B6;
+}
 button:hover {
     background-color: #FC46AA;
     background-color: #101010;
@@ -197,11 +201,10 @@ a:active {
     height: 60px;
     width: 100%;
     border: none;
-    box-shadow: inset 0px 0px 5px 1px #EF80B6;
+    box-shadow: inset 0px 0px 5px 3px #EF80B6;
 }
 
 .submit-button:hover {
-    background-color: #FF70A6;
 }
 
 .mapouter {
@@ -241,9 +244,13 @@ a:active {
     height: 65%;
 }
 
+.table_form {
+    height:100%;
+    width:100%;
+}
 .add_to_cart-button, .remove-button{
     margin-bottom: 1%;
-    background-color: #FF90C6;
+    background-color: #FFB0E6;
     font-size: 50px;
     text-align: center;
     line-height: 60px;
@@ -251,6 +258,7 @@ a:active {
     height: 60px;
     width: 99%;
     border: none;
+    box-shadow: inset 0px 0px 5px 3px #FF80B6;
 }
 
 .delete-button, .edit-button {
@@ -258,11 +266,14 @@ a:active {
     font-size: 30px;
     text-align: center;
     width: 99%;
+    height: 100%;
     border: none;
+    box-shadow: inset 0px 0px 5px 3px #3F80B6;
 }
 
 .remove-button, .delete-button {
     background-color: #FF8036;
+    box-shadow: inset 0px 0px 5px 3px #AF8036;
 }
 
 .back-button, .insert-button {
@@ -270,9 +281,11 @@ a:active {
     font-size: 30px;
     text-align: center;
     border: none;
+    box-shadow: inset 0px 0px 5px 3px #3F8026;
 }
 
 .button_td {
+    height: 100%;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
 }

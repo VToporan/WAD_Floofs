@@ -141,8 +141,8 @@ class DB{
                 self::displayCell($row, $column);
             }
             $id = $row[$pkName];
-            Template::actionButton("delete", $id, "Are you sure you want to delete id " . $id);
-            Template::actionButton("edit", $id);
+            Template::actionButton("delete", $id, "Are you sure you want to delete id " . $id, true);
+            Template::actionButton("edit", $id, null, true);
             echo "</tr>";
         }
 
