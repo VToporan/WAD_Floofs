@@ -1,5 +1,6 @@
 <?php 
 require_once('./config.php');
+$message = "Welcome to FLOOFS!";
 $anchors = [
     "Store" => [
         "Url" => "./store/store.php",
@@ -24,7 +25,7 @@ $anchors = [
     <body>
         <div id="content" style="margin-left:0px">
         <?php
-        Template::mainPage("Welcome to FLOOFS!", $anchors);
+        Template::mainPage($message, $anchors);
         ?>
         </div>
 	</body>

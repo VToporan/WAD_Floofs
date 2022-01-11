@@ -39,10 +39,10 @@ class Template {
         echo "</td>";
     }
 
-    public static function mainPage($title, $anchors) {
+    public static function mainPage($message, $anchors) {
         $root = '/Floofs/images';
         $width = 100 / count($anchors);
-        echo "<br> $title";
+        echo "<br> $message";
         echo "<div style=\"width:100%\">";
         foreach($anchors as $name=>$content) {
             $url = $content["Url"];

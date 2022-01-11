@@ -1,5 +1,6 @@
 <?php
 require_once('../config.php');
+$message = "Look for adoption opportunities or add your own!";
 $anchors = [
     "Browse" => [
         "Url" => "./browse.php",
@@ -24,7 +25,7 @@ $anchors = [
     <body>
         <div id="content" style="margin-left:0px">
         <?php
-        Template::mainPage("Look for addoption opportunities or add your own!", $anchors);
+        Template::mainPage($message, $anchors);
         ?>
         </div>
     </body>
