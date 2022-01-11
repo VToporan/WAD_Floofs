@@ -60,11 +60,19 @@ function displayButtons($dictLinks) {
     function toggleMenu() {
         var content = document.getElementById("content");
         var menu = document.getElementById("menu");
+        var width = window.screen.width;
+        var menuWidth = "260px";
+        if (width < 700) {
+            menuWidth = "150px";
+        }
+        if (width > 1920) {
+            menuWidth = "370px";
+        }
         if (menu.offsetWidth === 0) {
             menu.style.transition = "0.5s";
             content.style.transition = "margin-left 0.5s";
-            menu.style.width = "260px";
-            content.style.marginLeft = "260px";
+            menu.style.width = menuWidth;
+            content.style.marginLeft = menuWidth;
             localStorage.setItem("sidenav", "open");
         } else {
             menu.style.transition = "0.5s";
@@ -78,13 +86,21 @@ function displayButtons($dictLinks) {
     window.onload = function() {
         var content = document.getElementById("content");
         var menu = document.getElementById("menu");
+        var width = window.screen.width;
+        var menuWidth = "260px";
+        if (width < 900) {
+            menuWidth = "150px";
+        }
+        if (width > 1920) {
+            menuWidth = "370px";
+        }
         if(typeof(Storage) !== "undefined") {
             if (localStorage.getItem("sidenav") === "open") {
                 menu.style.transition = "0s";
                 content.style.transition = "0s";
 
-                menu.style.width = "260px";
-                content.style.marginLeft = "260px";
+                menu.style.width = menuWidth;
+                content.style.marginLeft = menuWidth;
             }
         }
     }
