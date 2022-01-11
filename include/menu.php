@@ -16,8 +16,8 @@ $dirLinks = [
         "register" => "register.php",
     ],
     "profile" => [
-        "change password" => "pass.php",
         "cart" => "cart.php",
+        "change password" => "pass.php",
     ],
     "manager" => [
         "inventory" => "inventory.php",

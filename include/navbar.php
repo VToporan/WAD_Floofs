@@ -12,7 +12,7 @@ $loginLinks = [
     "register" => "credentials/register.php",
 ];
 $profileLinks = [
-    "profile" => "profile/pass.php",
+    "profile" => "profile/profile.php",
     "cart" => "profile/cart.php",
 ];
 $managerLinks = [

@@ -3,6 +3,18 @@ require_once('../config.php');
 if(!$current_user->isLogged()){
     header("location: ../index.php");
 }
+
+$message = "Hy, " . $current_user->username() . "!";
+$anchors = [
+    "Cart" => [
+        "Url" => "./cart.php",
+        "Image" => "profile/cart.jpg",
+    ],
+    "Change password" => [
+        "Url" => "./pass.php",
+        "Image" => "profile/password.jpg",
+    ],
+];
 ?>
 
 <html>
@@ -12,7 +24,9 @@ if(!$current_user->isLogged()){
     
     <body>
         <div id="content" style="margin-left:0px">
-            Profile page
+        <?php
+        Template::mainPage($message, $anchors);
+        ?>
         </div> 
 
 	</body>
