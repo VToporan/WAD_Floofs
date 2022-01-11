@@ -4,7 +4,7 @@ $root = '/Floofs';
 $commonLinks = [
     "home" => "index.php",
     "store" => "store/store.php",
-    "adoption" => "adoption/browse.php",
+    "adoption" => "adoption/adoption.php",
     "contact" => "contact.php",
 ];
 $loginLinks = [

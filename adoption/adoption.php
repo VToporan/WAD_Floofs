@@ -1,5 +1,19 @@
 <?php
 require_once('../config.php');
+$anchors = [
+    "Browse" => [
+        "Url" => "./browse.php",
+        "Image" => "adoption/browse.jpeg",
+    ],
+    "Add listing" => [
+        "Url" => "./add.php",
+        "Image" => "adoption/add.jpg",
+    ],
+    "My listings" => [
+        "Url" => "./listings.php",
+        "Image" => "adoption/listings.jpg",
+    ],
+];
 ?>
 
 <html>
@@ -9,8 +23,9 @@ require_once('../config.php');
     
     <body>
         <div id="content" style="margin-left:0px">
-            <a href="./add.php" style="width:100%; height:50%">add</a>
-            <a href="./browse.php" style="width:100%; height:50%">browse</a>
+        <?php
+        Template::mainPage("Look for addoption opportunities or add your own!", $anchors);
+        ?>
         </div>
     </body>
 </html>

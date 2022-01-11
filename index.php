@@ -3,15 +3,15 @@ require_once('./config.php');
 $anchors = [
     "Store" => [
         "Url" => "./store/store.php",
-        "Image" => "store.jpeg",
+        "Image" => "index/store.jpeg",
     ],
     "Adoptions" => [
         "Url" => "./adoption/adoption.php",
-        "Image" => "adoption.jpg",
+        "Image" => "index/adoption.jpg",
     ],
     "Contact" => [
         "Url" => "./contact.php",
-        "Image" => "contact.png",
+        "Image" => "index/contact.png",
     ],
 ];
 ?>
